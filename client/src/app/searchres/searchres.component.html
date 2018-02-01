@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Search Results</h1>
+  <button (click)="goback()">go back</button>
+  <br> <br>
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let g of games">
+        <td>{{g.user}}</td>
+        <td>{{g.score}}/3</td>
+        <td>{{g.percentage}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

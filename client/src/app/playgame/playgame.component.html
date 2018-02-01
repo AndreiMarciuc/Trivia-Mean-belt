@@ -1,0 +1,59 @@
+<div class="container">
+<h1>Hi {{activeuser.username}}</h1>
+<p>Choose an answer for each of question and submit the test once done !</p>
+<p>Good luck!</p>
+<div>
+  <form class="border col-md-5">
+    <div *ngIf="questions[0]" >
+      <p>1:{{questions[0].prompt}}</p>
+      <input type="radio" name="a" id="a" value="{{questions[0].answers[0]}}" [(ngModel)]="quiz.question1">
+      <label>{{questions[0].answers[0]}} </label>
+      <br>
+      <input type="radio" name="a" id="a" value="{{questions[0].answers[1]}}" [(ngModel)]="quiz.question1">
+      <label>{{questions[0].answers[1]}} </label>
+      <br>
+      <input type="radio" name="a" id="a" value="{{questions[0].answers[2]}}" [(ngModel)]="quiz.question1">
+      <label>{{questions[0].answers[2]}} </label>
+      <br>
+    </div>
+  </form>
+<br>
+  <form class="border col-md-5">
+    <div *ngIf="questions[1]">
+      <p>2:{{questions[1].prompt}}</p>
+      <input type="radio" name="a" id="a" value="{{questions[1].answers[0]}}" [(ngModel)]="quiz.question2">
+      <label>{{questions[1].answers[0]}} </label>
+      <br>
+      <input type="radio" name="a" id="a" value="{{questions[1].answers[1]}}" [(ngModel)]="quiz.question2">
+      <label>{{questions[1].answers[1]}} </label>
+      <br>
+      <input type="radio" name="a" id="a" value="{{questions[1].answers[2]}}" [(ngModel)]="quiz.question2">
+      <label>{{questions[1].answers[2]}} </label>
+      <br>
+    </div>
+  </form>
+<br>
+  <form class="border col-md-5">
+    <div *ngIf="questions[2]">
+      <p>3:{{questions[2].prompt}}</p>
+      <input type="radio" name="a" id="a" value="{{questions[2].answers[0]}}" [(ngModel)]="quiz.question3" required>
+      <label>{{questions[2].answers[2]}} </label>
+      <br>
+      <input type="radio" name="a" id="a" value="{{questions[2].answers[1]}}" [(ngModel)]="quiz.question3" required>
+      <label>{{questions[2].answers[1]}} </label>
+      <br>
+      <input type="radio" name="a" id="a" value="{{questions[2].answers[2]}}" [(ngModel)]="quiz.question3" required>
+      <label>{{questions[2].answers[2]}} </label>
+      <br>
+    </div>
+    
+  </form>
+<br><br>
+  <button (click)="submitgame()">submit</button>
+  <button (click)="goback()"> Cancel</button>
+  <div *ngIf="errors.length>0">
+    <p *ngFor="let e of errors">{{e}}</p>
+  </div>
+</div>
+
+</div>

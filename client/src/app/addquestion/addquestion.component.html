@@ -1,0 +1,49 @@
+<div class="container ">
+<h1>New Question</h1>
+<form (submit)="submitquestion()">
+  <div class="form-group">
+  <label>Question </label>
+  <input class="form-control col-md-7" type="textarea" name='prompt' placeholder="your question here" [(ngModel)]='new_question.prompt' required minlength="15"
+    #prompt="ngModel">
+  <span *ngIf='prompt.errors'>
+    <p *ngIf='prompt.errors.minlength'>Minimun length is 15 characters ! </p>
+  </span>
+  <p *ngIf="new_question.prompt[0]==' '">Can't begin your question with a blank space</p>
+</div>
+  <br>
+  <div class="form-group">
+  <label>Correct Answer</label>
+  <input type="text" class="form-control col-md-7" name="correct" placeholder="your correct answer here" [(ngModel)]='new_question.correct' required minlength="3"
+    #correct="ngModel">
+  <span *ngIf='correct.errors'>
+    <p *ngIf='correct.errors.minlength'>Minimun length is 3 characters ! </p>
+  </span>
+  <p *ngIf="new_question.correct[0]==' '">Can't begin your answer with a blank space</p>
+</div>
+  <br>
+  <div class="form-group">
+  <label>Fake Answer 1</label>
+  <input type="text" class="form-control col-md-7" name="false1" placeholder="your false answer here" [(ngModel)]='new_question.false1' required minlength="3"
+    #false1="ngModel">
+  <span *ngIf='false1.errors'>
+    <p *ngIf='false1.errors.minlength'>Minimun length is 3 characters ! </p>
+  </span>
+  <p *ngIf="new_question.false1[0]==' '">Can't begin your answer with a blank space</p>
+</div>
+  <br>
+  <div class="form-group">
+  <label>Fake Answer 2</label>
+  <input type="text" class="form-control col-md-7" name="false2" placeholder="your false answer here" [(ngModel)]='new_question.false2' required minlength="3"
+    #false2="ngModel">
+  <span *ngIf='false2.errors'>
+    <p *ngIf='false2.errors.minlength'>Minimun length is 3 characters ! </p>
+  </span>
+  <p *ngIf="new_question.false2[0]==' '">Can't begin your answer with a blank space</p>
+</div>
+  <br>
+  <input *ngIf="!prompt.errors && !correct.errors &&!false1.errors&&!false2.errors" type="submit">
+  <input *ngIf="prompt.errors ||correct.errors ||false1.errors ||false2.errors" type="submit" disabled>
+
+  <button (click)="goback()"> Cancel</button>
+</form>
+</div>

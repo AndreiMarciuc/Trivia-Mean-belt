@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome {{activeuser.username}}</h1>
+  </div>
+  <button (click)="viewaddquestion()">Add question</button>
+  <h3 *ngIf="lastgame.user">That was great, {{lastgame.user}} you score is {{lastgame.score}}/3 for ({{lastgame.percentage}}) %</h3>
+  <button (click)="makegame()">Play a new Game</button>
+  <button class="logout" (click)='logout()'>Logout</button>
+  <br>
+  <br>
+  <input type="text" name="search" [(ngModel)]="searchtxt">
+  <button (click)="search()"> search</button>
+  <br>
+  <br>
+  <h1 style="text-align: center">Leaderboard</h1>
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game of games">
+        <td>{{game.user}}</td>
+        <td>{{game.score}}/3</td>
+        <td>{{game.percentage}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
